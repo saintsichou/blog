@@ -1,0 +1,350 @@
+<template>
+  <div class="container">
+    <!-- 公告 -->
+    <!-- <div class="notice">
+        <a-icon type="sound" class="sound"/>
+        <div class="wrap">
+            <div class="content">
+                <p>{{info.notice}}</p>
+            </div>
+        </div>
+    </div> -->
+    <div class="pages">
+      <div class='bannerWrapper'>
+        <!-- <a-carousel autoplay>
+          <div v-for="(item, i) in info.banner.list" :key="i" class="bannerInner">
+            <a :href="item.link" class="block">
+              <img :src="item.path" alt="">
+            </a>
+          </div>
+        </a-carousel> -->
+        <img :src="articleList[0].articleInfor.thumbnail" alt="">
+      </div>
+      <div class='newPages' >
+          <h5 class="paper_a">New article</h5>
+          <h1 class='paper_title'>{{articleList[0].title.rendered}}</h1>
+          <div class="line"></div>
+          <div class="paper_detail">
+             <p>{{articleList[0].articleInfor.summary}}</p>
+          </div>
+      </div>
+    </div> 
+    <div class="article_right">
+      <a-card hoverable :title="item.title.rendered" class="card_list" v-for="item in articleList" :key="item.key">
+      <nuxt-link slot="extra" :to="{ name: 'details-id', params: { id: item.id } }" class="thumbnail-wrap">阅读详情</nuxt-link>
+      <img
+        :alt="item.title"
+        :src="item.articleInfor.thumbnail"
+        slot="cover"
+      />
+      <div class="opeartion">
+        <div class="information">
+          <span>{{ item.date }}</span>
+          <span>{{ item.articleInfor.viewCount }}</span>
+          <span>{{ item.articleInfor.commentCount }}</span>
+          <span>{{ item.articleInfor.xmLike.very_good }}</span>
+        </div>
+      </div>
+    </a-card>
+    </div>
+    <!-- 公告 -->
+    <!-- <div class="notice">
+        <a-icon type="sound" class="sound"/>
+        <div class="wrap">
+            <div class="content">
+                <p>{{info.notice}}</p>
+            </div>
+        </div>
+    </div> -->
+    <!-- article list start -->
+    <!-- <div class="article">
+      <div class="article-wrap">
+        <ul class="header">
+          <li class="list">最新文章</li>
+        </ul>
+      </div>
+      <a-row :gutter='64'>
+        <a-col :xs="24" :sm="24" :md="12" :lg="12" :xl="12"  v-for="item in articleList" :key="item.key" class="cardF">
+          <nuxt-link :to="{ name: 'details-id', params: { id: item.id } }" class="thumbnail-wrap">          
+              <a-card
+                hoverable
+                class="card"
+              >
+                <img
+                  :alt="item.title"
+                  :src="item.articleInfor.thumbnail"
+                  slot="cover"
+                />
+                <a-card-meta
+                  :title="item.title.rendered">
+                  <template slot="description">
+                      <div class="opeartion">
+                        <div class="information">
+                            <span>{{ item.date }}</span>
+                            <a-icon type="fire" /><span>{{ item.articleInfor.viewCount }}</span>
+                        </div>
+                      </div>
+                  </template>
+                </a-card-meta>
+              </a-card>
+          </nuxt-link>
+        </a-col>
+      </a-row>
+    </div> -->
+  </div>
+</template>
+
+<script>
+import { mapState, mapActions } from 'vuex'
+
+export default {
+  name: 'Index',
+  fetch ({ store }) {
+    store.commit('article/SET_CURRENT_PAGE', 1)
+    return store.dispatch('article/getArticleList', {
+      page: 1,
+      per_page: 9,
+      _embed: true
+    })
+  },
+  computed: {
+    ...mapState(['info']),
+    ...mapState('article', ['articleList', 'totalPage', 'currentPage'])
+  },
+  head () {
+    return {
+      title: `${this.info.blogName} | ${this.info.blogDescription}`,
+      meta: [
+        { name: 'keywords', content: this.info.keywords },
+        { name: 'description', content: this.info.description }
+      ]
+    }
+  },
+  data () {
+    return {
+      bannerHeight: '405px'
+    }
+  },
+  mounted () {
+    
+  },
+  beforeDestroy () {
+
+  },
+  methods: {
+    _changePagination (id) {
+      this.$router.push({
+        name: 'article-id-title',
+        params: { id }
+      })
+    }
+  }
+}
+</script>
+
+<style lang='less'>
+.pages{
+  width: 75%;
+  height:90vh;
+  background: #fff;
+  float: left;
+  margin: 5vh 0 0 20px;
+  display:flex;
+  box-shadow: 1px 2px 5px 3px #d3d0d0;
+}
+.article_right{
+  float: right;
+  width:20%;
+  height: 100vh;
+  background: rgba(4, 185, 245, 0.3);
+  overflow: auto;
+  .card_list{
+    width: 100%;
+    // margin-bottom: 10px;
+  }
+}
+.notice{
+  position: fixed;
+  top:0;
+  width:79%;
+  line-height:16px;
+  background: #fff;
+  .sound{
+    padding:10px;
+    color:red;
+  }
+}
+.bannerWrapper{
+  flex:1;
+  width: 50%;
+  height: 100%;
+  img{
+    width:100%;
+    height: 100%;
+    padding:50px;
+    box-sizing: border-box;
+  }
+}
+.newPages{
+  width:50%;
+  flex:1;
+  height:100%;
+  padding:15px;
+  box-sizing: border-box;
+  color:#111111;
+  .paper_a{
+    text-align: center;
+    font-weight: bold;
+    padding:20px 0;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  .line{
+    width:100%;
+    height:0;
+    position: relative;
+    border-bottom:1px solid #1111;
+    margin-top:10px;
+  }
+  .line::after{
+    content:'';
+    width: 20px;
+    height: 20px;
+    border:1px solid #1111;
+    border-radius: 50%;
+    position: absolute;
+    top:-10px;
+    left: 45%;
+    background: #fff;
+  }
+  .paper_title{
+    text-align: center;
+    padding:0px 0 30px 0;
+    font-weight: bold;
+  }
+  .paper_detail{
+    padding:30px 10px;
+    font-size: 12px;
+    font-weight: bold;
+  }
+}
+.bannerInner{
+  width:100%;
+  .block{
+    width:100%;
+  }
+  img{
+    width:100%;
+    height: 90vh;
+  }
+}
+.container {
+  min-height: 100vh;
+}
+.article{
+  width:1080px;
+  height:auto;
+  margin:0 auto;
+  padding:15px 0;
+  box-sizing: border-box;
+  // background: url(http://gdp.alicdn.com/imgextra/i2/453276963/TB2cBTft7OWBuNjSsppXXXPgpXa_!!453276963.jpg) no-repeat center;
+  // background-attachment: fixed;
+}
+.card{
+    img{
+      height:22em;
+    }
+}
+.ant-carousel > .slick-slider {
+  text-align: center;
+  // height: auto;
+  // line-height: 100vh;
+  // background: #364d79;
+  overflow: hidden;
+}
+.article-wrap .header {
+    padding-bottom: 15px;
+    font-size: 16px;
+}
+.ant-carousel > .slick-slide  h3 {
+  color: #fff;
+}
+.banner-wrap {
+  position: relative;
+  width: 100%;
+}
+.cardF{
+  margin-top:10px;
+}
+.ant-card-bordered{
+  border:none;
+}
+.wrap p {
+    margin: 0;
+    line-height: 16px;
+    text-align: center;
+}
+
+.content p {
+    position: absolute;
+    top:0;
+    left:0;
+    padding:15px 20px;
+}
+
+@-webkit-keyframes anim1 {
+    0% {
+        left: 0px;
+        opacity: 0.6
+    }
+    25% {
+        left: 25%;
+        opacity: 1
+    }
+    50% {
+        left: 50%;
+        opacity: .8
+    }
+    75% {
+        left: 75%;
+        opacity: .6
+    }
+    100% {
+        left: 100%;
+        opacity: 0
+    }
+}
+.content p{
+    -webkit-animation: anim1 10s linear infinite;
+}          
+@media screen and (max-width: 1024px) {
+
+}
+
+@media screen and (max-width:767px) {
+  .bannerInner{
+    width:100%;
+    height:100%;
+    .block{
+      width:100%;
+      height:100%;
+    }
+    img{
+      width:100%;
+      height: auto;
+    }
+  }
+  .cardF{
+    width:100%;
+    height: auto;
+    margin-top: 0px;
+  }
+  .card{
+    width:100vw;
+    img{
+      width:100%;
+      height:8em;
+      box-sizing: border-box;
+    }
+  }
+}
+</style>

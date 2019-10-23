@@ -1,0 +1,129 @@
+@import  './title.less';
+// 左浮动
+.fl {
+  float: left;
+}
+
+// 右浮动
+.fr {
+  float: right;
+}
+
+// 清除浮动
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  clear: both;
+}
+
+.h-f-100 {
+  height: 100%;
+}
+
+// 文本对齐
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+.vertical-middle {
+  vertical-align: middle;
+}
+
+// 状态显示
+.inline-block {
+  display: inline-block;
+}
+
+.block {
+  display: block;
+}
+
+.hide {
+  display: none;
+}
+
+.o-hide {
+  overflow: hidden;
+}
+
+.m-l-5px {
+  margin-left: 5px;
+}
+
+.m-l-10px {
+  margin-left: 10px;
+}
+
+.m-t-10px {
+  margin-top: 10px;
+}
+
+// 字体大小
+.f-s-small {
+  font-size: @font-size-small;
+}
+
+.f-s-base {
+  font-size: @font-size-base;
+}
+
+.f-s-large {
+  font-size: @font-size-large;
+}
+
+.c-pointer {
+  cursor: pointer;
+}
+
+.word-break {
+  word-break: break-word;
+}
+
+code:not([class*="lang"]),
+.code {
+  padding: 2px 5px;
+  background: #f7f7f9;
+  border: 1px solid #E3EDF3;
+  border-radius: 3px;
+  font-family: "play";
+  color: #d14;
+}
+blockquote {
+  margin-top: 10px;
+  padding: 10px;
+  background: #f8f8f8;
+  border-radius: 5px;
+}
+
+// 文字选中颜色
+::selection {
+  background: @main-theme;
+  color:#fff;
+}
+
+// 滚动条颜色
+// ::-webkit-scrollbar {
+//   width: 1px;
+//   height: 5px;
+//   background: #e4e4e4;
+// }
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: @main-theme;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
+
