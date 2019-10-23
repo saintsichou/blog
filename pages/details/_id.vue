@@ -3,7 +3,7 @@
     <div class="bgbox"> 
       <div class="at_box2 section">
         <!-- 文章内容开始 -->
-        <h2 class="title text-center" v-html="detail.title.rendered"></h2>
+        <h1 class="title text-center" v-html="detail.title.rendered"></h1>
         <div class="other-info">
           <p>
             <span class="author">
@@ -42,9 +42,9 @@
          <!-- 评论列表 -->
         <div class="section comment">
           <h2 class="comment-title" v-html="`共 ${detail.articleInfor.commentCount} 条评论关于 “${detail.title.rendered}”`"></h2>
-          <no-ssr>
+          <client-only>
             <comments :comment-status="detail.comment_status"/>
-          </no-ssr>
+          </client-only>
         </div>
       </div>
     </div>
@@ -54,6 +54,8 @@
 import { mapState, mapActions } from 'vuex'
 import like from '~/components/likeit'
 import Comments from '~/components/setComment/index.vue'
+import QRCode from 'qrcode'
+
 // import Reward from '~/components/Reward'
 
 export default {
@@ -69,6 +71,7 @@ export default {
   },
   data () {
     return {
+      QRCodeUrl:'',
       isShowReward: false,
       isShowPoster: false,
       fullPath: '',
@@ -147,7 +150,15 @@ export default {
         imgUrl: this.detail.articleInfor.other.wechatPic,
         duration: 0
       })
-    }
+    },
+    // canvas
+    // useqrcode(){
+    //   var canvas = document.getElementById('canvas')
+    //   QRCode.toCanvas(canvas, 'https://blog.csdn.net/weixin_42890953/article/details/82776760', function (error) {
+    //     if (error) console.error(error)
+    //     console.log('QRCode success!');
+    //   })
+    // }
   }
 }
 </script>

@@ -48,8 +48,9 @@ export default {
     ...mapState('phrase', ['list'])
   },
   created () {
-    this.loading = false;
+    
     this.getPhraseList().then(res=>{
+      this.loading = false;
       this.allPhase = res.length;
       this.data = res.slice(0,4);
       this.i = this.data.length

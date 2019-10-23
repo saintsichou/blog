@@ -19,6 +19,7 @@
     "less": "^3.10.3",
     "less-loader": "^5.0.0",
     "nuxt": "^2.0.0",
+    "qrcode": "^1.4.2",
     "webpack-bundle-analyzer": "^3.6.0"
   },
   "devDependencies": {

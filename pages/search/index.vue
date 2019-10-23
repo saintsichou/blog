@@ -7,7 +7,7 @@
             <li class="list">共<span class="mark">{{ totalPage }}</span>条关于“<span class="mark">{{ $route.query.s }}</span>”的文章</li>
           </ul>
         </h1>
-        <a-list itemLayout="vertical" size="large" :pagination="pagination" :dataSource="articleList">
+        <a-list itemLayout="vertical" size="large" :pagination="pagination2" :dataSource="articleList">
           <a-list-item slot="renderItem" slot-scope="item, index" key="item.title">
             <template slot="actions">
               <span>
@@ -46,7 +46,7 @@ export default {
   name: 'Search',
   watchQuery: ['page', 's'],
   fetch ({ params, query, store }) {
-    store.commit('article/SET_CURRENT_PAGE',query.page || 1)
+    store.commit('article/SET_CURRENT_PAGE',+query.page)
     return store.dispatch('article/getArticleList', {
       search: query.s,
       page: query.page,
@@ -56,7 +56,7 @@ export default {
   },
   data(){
     return {
-      pagination: {
+      pagination2: {
         onChange: id => {
           console.log(id)
           // console.log(this.query.page)
@@ -70,15 +70,19 @@ export default {
           })
         },
         pageSize: 8,
-        current:1,
-        total:0
+        // current:1,
+        // total:0
       },
     }
   },
-  mounted(){
-    this.pagination.total = this.totalPage
-    this.pagination.current = this.currentPage
+  created(){
+    this.pagination2.total = this.totalPage
+    this.pagination2.current = this.currentPage
     // console.log(this.currentPage)
+  },
+  mounted(){
+    this.pagination2.total = this.totalPage
+    this.pagination2.current = this.currentPage
   },
   computed: {
     ...mapState(['info']),

@@ -24,6 +24,16 @@
         <a :href="`https://service.weibo.com/share/share.php?url=${info.domain}/details/${$route.params.id}%230-tsina-1-21107-397232819ff9a47a7b7e80a40613cfe1&title=${detail.title.rendered}&appkey=1343713053&searchPic=true#_loginLayer_1473259217614`" target="_blank">
           <weibo></weibo>
         </a>
+        <span class='wechat'>
+          <div id='code'>
+            <img
+              width="60"
+              alt="logo"
+              :src="this.QRCodeUrl"
+            />
+          </div>
+          <wechat></wechat>
+        </span>
         <!-- <a href="javascript:;" class="create-poster-btn" @click="isShowPoster = true">
           <svg-icon iconName="#icon-shengchengerweima"></svg-icon>
         </a> -->
@@ -53,18 +63,29 @@
 </template>
 <script>
 import { mapState, mapActions } from 'vuex'
+import QRCode from 'qrcode'
 import qq from '~/components/Svgs/qq'
 import qqshare from '~/components/Svgs/qqshare'
 import weibo from '~/components/Svgs/weibo'
 import zone from '~/components/Svgs/zone'
+import wechat from '~/components/Svgs/wechat'
 
 export default {
   components:{
-    qqshare,weibo,zone
+    qqshare,weibo,zone,wechat
   },
    computed: {
     ...mapState(['info']),
     ...mapState('article', ['detail', 'viewCount', 'opinion'])
+  },
+  data(){
+    return {
+      QRCodeUrl:'',
+      ishowqr:false
+    }
+  },
+  mounted () {
+    this.createQR(window.location.href)
   },
   methods: {
     ...mapActions('article', ['updateOpinion']),
@@ -89,7 +110,17 @@ export default {
         })
         localStorage.setItem(`xm_link_${this.$route.params.id}`, true)
       }
-    }
+    },
+    createQR (text) {
+      try {
+        QRCode.toDataURL(text).then(res=>{
+          this.QRCodeUrl= res
+        })
+      } catch (error) {
+        console.warn(`[createQRcode]: ${error}`)
+        this.$message.error(error)
+      }
+    },
   }
 }
 </script>
@@ -112,6 +143,22 @@ export default {
       margin-bottom: 20px;
     }
   }
+  .wechat{
+    position: relative;
+    cursor: pointer;
+    #code{
+      position: absolute;
+      top: -69px;
+      right: -19px;
+      display: none;
+      background: transparent;
+    }
+  }
+  .wechat:hover{
+      #code{
+        display: block
+      }
+    }
   .tag-wrap,.relative-link-wrap{
     margin-top:15px;
   }

@@ -9,6 +9,7 @@
                 </nuxt-link>
           </div>
       </div>
+      <a-button shape="circle" :icon="ismusic?'caret-right':'pause'" class="music_btn" @click="showMusic"/>
       <a-button shape="circle" :icon="isShowSearch?'search':'up'"  class="search_btn" @click="showSearch"/>
       <a-button @click="showDrawer" class="icon" :icon="visible?'close':'thunderbolt'" size="large">
       </a-button>
@@ -76,6 +77,10 @@
           />
     </div>
     <!-- 搜索结束 -->
+    <!-- music -->
+    <span :class="['tip',ismusic?'isshow':'']">
+            <iframe src="http://music.163.com/outchain/player?type=0&amp;id=3039557527&amp;auto=1&amp;height=280" width="330" height="300" frameborder="no" marginwidth="0" marginheight="0" zIndex='999'></iframe>
+    </span>
   </header>
 </template>
 <script>
@@ -95,6 +100,7 @@ export default {
       showMenu:false,
       searchText: '',
       isShowSearch: false,
+      ismusic:false,
       current: ['mail'],
       rootSubmenuKeys: [],
       openKeys: [],
@@ -110,6 +116,9 @@ export default {
   methods:{
     showDrawer() {
       this.visible = true
+    },
+    showMusic(){
+      this.ismusic = !this.ismusic
     },
     onClose() {
       this.visible = false
@@ -220,6 +229,24 @@ export default {
   margin-top: -3px;
   color:rgba(255,255,255,.9);
   background: transparent;
+}
+.music_btn{
+  // font-size: 30px;
+  cursor: pointer;
+  position: fixed;
+  z-index: 4;
+  right: 143px;
+  top: 23px;
+  margin-top: -3px;
+  color:rgba(255,255,255,.9);
+  background: transparent;
+}
+.tip{
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    transition: all .3s linear;
 }
 .icon{
   font-size: 20px;
