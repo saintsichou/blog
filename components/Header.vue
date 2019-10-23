@@ -78,7 +78,7 @@
     </div>
     <!-- 搜索结束 -->
     <!-- music -->
-    <span :class="['tip',ismusic?'isshow':'']">
+    <span :class="['tip',ismusic?'isshow2':'']">
             <iframe src="http://music.163.com/outchain/player?type=0&amp;id=3039557527&amp;auto=1&amp;height=280" width="330" height="300" frameborder="no" marginwidth="0" marginheight="0" zIndex='999'></iframe>
     </span>
   </header>
@@ -243,7 +243,7 @@ export default {
 }
 .tip{
     position: fixed;
-    top: 0;
+    top: 120px;
     right: 0;
     z-index: 2;
     transition: all .3s linear;
@@ -266,6 +266,10 @@ export default {
 }
 .isshow{
   transform: translateY(-100%);
+  opacity: 0;
+}
+.isshow2{
+  transform: translateX(100%);
   opacity: 0;
 }
 @media screen and (max-width:767px) {

@@ -5,6 +5,7 @@
         <a-carousel effect='fade' autoplay>
           <div v-for="(item, i) in info.banner.list" :key="i" class="bannerInner">
             <a :href="item.link" class="block">
+              <div class="mask"></div>
               <img :src="item.path" alt="">
             </a>
           </div>
@@ -139,6 +140,12 @@ export default {
   overflow: auto;
 }
 .ant-carousel{
+  .mask{
+    position: absolute;
+    width:100%;
+    height: 600px;
+    background: url('../assets/images/mask.png') repeat;
+  }
   .slick-slide {
     text-align: center;
     height: 600px;
