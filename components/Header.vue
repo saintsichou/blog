@@ -47,7 +47,7 @@
                   </nuxt-link>
                   <nuxt-link
                     v-else-if="item.object === 'page'"
-                    :to="{ name: 'page-id', params: { id: item.object_id } }"
+                    :to="{ name: 'personal-id', params: { id: item.object_id } }"
                     class="first-link">
                     {{ item.title }}
                   </nuxt-link>
@@ -99,8 +99,8 @@ export default {
       visible: false,
       showMenu:false,
       searchText: '',
-      isShowSearch: false,
-      ismusic:false,
+      isShowSearch: true,
+      ismusic:true,
       current: ['mail'],
       rootSubmenuKeys: [],
       openKeys: [],
@@ -173,6 +173,7 @@ export default {
 .logo{
   margin: 10px;
   position: relative;
+  background: @color-theme;
   h1{
     position: fixed;
       top: -500%;
@@ -224,7 +225,7 @@ export default {
   cursor: pointer;
   position: fixed;
   z-index: 4;
-  right: 83px;
+  right: 70px;
   top: 23px;
   margin-top: -3px;
   color:rgba(255,255,255,.9);
@@ -235,7 +236,7 @@ export default {
   cursor: pointer;
   position: fixed;
   z-index: 4;
-  right: 143px;
+  right: 120px;
   top: 23px;
   margin-top: -3px;
   color:rgba(255,255,255,.9);

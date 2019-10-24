@@ -23,7 +23,7 @@
         <nuxt-link
           v-else-if="child.object === 'page'"
           :to="{
-            name: 'page-id',
+            name: 'personal-id',
             params: { id: child.object_id }
           }"
         >

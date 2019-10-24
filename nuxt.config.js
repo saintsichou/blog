@@ -21,9 +21,9 @@ export default {
       // { src: '//at.alicdn.com/t/font_556506_8c5mvyqjye4.js' },
       { src: '/js/prism.js' },
       // 百度主推文章收录用
-      // { src: 'https://zz.bdstatic.com/linksubmit/push.js' },
+      { src: 'https://zz.bdstatic.com/linksubmit/push.js' },
       // 加入百度统计js，使用时自行添加为自己的
-      // { src: 'https://hm.baidu.com/hm.js?' }
+      { src: 'https://hm.baidu.com/hm.js?327d88064f5fe13511e599ca2491f549' }
     ]
   },
   /*
@@ -91,13 +91,13 @@ export default {
   // 将此处2个地址改为自己的地址
   proxy: {
     '/api': {
-      target: 'https://www.xuanmo.xin',
+      target: 'http://liyichuan.top',
       pathRewrite: {
         '^/api': '/'
       }
     },
     '/wp-content': {
-      target: 'https://www.xuanmo.xin'
+      target: 'http://liyichuan.top'
     }
   },
 

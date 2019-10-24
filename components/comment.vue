@@ -16,7 +16,7 @@
               </p>
               <p class="resource">
                 <nuxt-link v-if="item.postType === 'post'" :to="{ name: 'details-id', params: { id: item.id } }" class="block title">评论：{{ item.title }}</nuxt-link>
-                <nuxt-link v-else-if="item.postType === 'page'" :to="{ name: 'page-id', params: { id: item.id } }" class="block title">评论：{{ item.title }}</nuxt-link>
+                <nuxt-link v-else-if="item.postType === 'page'" :to="{ name: 'personal-id', params: { id: item.id } }" class="block title">评论：{{ item.title }}</nuxt-link>
               </p>
               <!-- <a-tooltip slot="datetime" :title="item.date">
                 <span>{{moment().fromNow()}} {{item.date}}</span>

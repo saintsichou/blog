@@ -194,7 +194,7 @@ export default {
     position: relative;
     .art_title{
       padding:15px 25px;
-      transform: skew(-20deg);
+      // transform: skew(-20deg);
     }
     .more{
       position: absolute;

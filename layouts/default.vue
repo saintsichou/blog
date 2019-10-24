@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div id='box'>
     <lheader/>
     <transition name="page">
       <nuxt />
@@ -88,4 +88,5 @@ body{
   color: #fff;
   background-color: #35495e;
 }
+
 </style>
