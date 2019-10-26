@@ -34,7 +34,7 @@ import zone from '~/components/Svgs/zone'
 import shang from '~/components/Svgs/shang'
 import github from '~/components/Svgs/git'
 import alipay from '~/components/Svgs/alipay'
-import wechart from '~/components/Svgs/wechat'
+import wechart from '~/components/Svgs/wechat2'
 
 export default {
   components:{
