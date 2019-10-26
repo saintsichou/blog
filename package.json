@@ -6,9 +6,10 @@
   "private": true,
   "scripts": {
     "dev": "nuxt",
-    "build": "nuxt build",
+    "build": "nuxt build && npm start",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "pm2": "pm2 start npm --name 'nuxt' -- run build --watch"
   },
   "dependencies": {
     "@nuxtjs/style-resources": "^1.0.0",
