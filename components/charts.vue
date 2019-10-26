@@ -11,7 +11,7 @@
         <p class="pst">页面：{{ sidebar.getAllCountPage }}个</p>
         <p class="pst">评论：{{ sidebar.getAllCountComment }}条</p>
         <p class="pst">分类：{{ sidebar.getAllCountCat }}个</p>
-        <p class="pst">最后更新：{{ sidebar.lastUpDate }}</p>
+        <p class="pst" @dblclick="jump">最后更新：{{ sidebar.lastUpDate }}</p>
       </a-card>
     </div>
   </div>
@@ -49,6 +49,9 @@ export default {
     })
   },
   methods:{
+    jump(){
+      window.open('http://www.liyichuan.top:3002/wp-login.php','_blank')
+    },
     echartsInit3(){
        // 找到容器
       let myChart = this.$echarts.init(document.getElementById('myChart2'))

@@ -7,6 +7,7 @@
             <a :href="item.link" class="block">
               <div class="mask"></div>
               <img :src="item.path" alt="">
+              <span class="masktitle" v-if="item.text">{{item.text}}</span>
             </a>
           </div>
         </a-carousel>
@@ -161,13 +162,22 @@ export default {
   .mask{
     position: absolute;
     width:100%;
-    height: 600px;
+    height: 576px;
     background: url('../assets/images/mask.png') repeat;
+  }
+  .masktitle{
+    position: absolute;
+    padding:10px 25px;
+    background: rgba(0, 0, 0, 0.65);
+    color:#fff;
+    text-align: center;
+    top:0;
+    border-radius:5px;
   }
   .slick-slide {
     text-align: center;
-    height: 600px;
-    background: #364d79;
+    height: 576px;
+    background: linear-gradient(90deg, #00c4cc, #7d2ae8);
     overflow: hidden;
   }
   .custom-slick-arrow {
@@ -192,8 +202,9 @@ export default {
   .bannerInner{
     width:100%;
     img{
-      max-width:100%;
-      height: auto;
+      width:auto;
+      height: 576px;
+      margin:0 auto;
     }
   }
 }
@@ -242,6 +253,11 @@ export default {
 }
 
 @media screen and (max-width:767px) {
+  .banner .bannerInner img {
+    width: 100%;
+    height: auto;
+    // margin: 0 auto;
+  }
   .ant-carousel{
     .slick-slide {
       text-align: center;
