@@ -23,7 +23,7 @@
         </h1>
         <a-button icon="read" class="more">
           <nuxt-link :to="{ name: 'article-id', params: { id: 1 }}" class="btn">
-          文章列表
+            更多文章
           </nuxt-link>
         </a-button>
           <a-row class="art_cont">
@@ -35,6 +35,7 @@
                     :src="item.articleInfor.thumbnail" 
                     slot="cover"
                   />
+                  <span class="tios">{{item.articleInfor.classify[0].name}}</span>
                   <a-card-meta :title="item.title.rendered">
                     <template slot="description">
                       <span class="summary">{{item.articleInfor.summary}}</span>
@@ -121,6 +122,17 @@ export default {
 </script>
 <style lang='less'>
 .cardgo{
+  position: relative;
+  .tios{
+    position:absolute;
+    top:10px;
+    left:10px;
+    background: linear-gradient(90deg,  #7d2ae8,#00c4cc,);
+    padding:5px;
+    color:#fff;
+    border-radius: 5px;
+    font-weight: 800;
+  }
   .summary{
     display: -webkit-box;
     -webkit-box-orient: vertical;
@@ -200,7 +212,7 @@ export default {
       position: absolute;
       right:0;
       top:0;
-      margin:10px;
+      margin:15px;
     }
   }
   .bannerWrapper{

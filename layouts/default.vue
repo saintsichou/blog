@@ -4,6 +4,7 @@
     <transition name="page">
       <nuxt />
     </transition>
+    <personalinfo></personalinfo>
     <footers />
   </div>
 </template>
@@ -11,13 +12,15 @@
 <script>
 import lheader from '~/components/Header';
 import footers from '~/components/Footers';
+import personalinfo from '~/components/personalinfo';
 import { mapState } from 'vuex'
 
 export default {
   name: 'App',
   components: {
     lheader,
-    footers
+    footers,
+    personalinfo
   },
   computed: {
     ...mapState(['menuStatus'])

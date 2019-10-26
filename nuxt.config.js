@@ -5,7 +5,7 @@ export default {
   ** Headers of the page
   */
   head: {
-    title: "弈川的博客" || '',
+    title: "弈川的博客 | WEB前端笔记 | h5前端博客 | 李二狗犬舍" ,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' },
@@ -92,12 +92,15 @@ export default {
   proxy: {
     '/api': {
       target: 'http://liyichuan.top',
+      // target: 'https://xuanmo.xin',
       pathRewrite: {
         '^/api': '/'
       }
     },
     '/wp-content': {
       target: 'http://liyichuan.top'
+      // target: 'https://xuanmo.xin',
+
     }
   },
 

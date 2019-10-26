@@ -52,7 +52,7 @@ export default {
     this.getPhraseList().then(res=>{
       this.loading = false;
       this.allPhase = res.length;
-      this.data = res.slice(0,4);
+      this.data = res.slice(0,1);
       this.i = this.data.length
     })
   },

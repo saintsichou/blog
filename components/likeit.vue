@@ -155,12 +155,19 @@ export default {
     }
   }
   .wechat:hover{
-      #code{
-        display: block
-      }
+    #code{
+      display: block
     }
+  }
   .tag-wrap,.relative-link-wrap{
     margin-top:15px;
+  }
+  .relative-link-wrap{
+    display:flex;
+  }
+  .prev,.next{
+    flex:1;
+    font-size: @font-size-large;
   }
   @media screen and (max-width: 767px){
     .opinion {

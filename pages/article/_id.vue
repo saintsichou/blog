@@ -4,14 +4,20 @@
       <div class="at_box2">
         <h1 class="art_title">文章列表</h1>
         <a-list itemLayout="vertical" size="large" :pagination="pagination" :dataSource="articleList">
-          <a-list-item slot="renderItem" slot-scope="item, index" key="item.title">
+          <a-list-item slot="renderItem" slot-scope="item, index" key="index" class="listitem">
             <template slot="actions">
               <span>
                     <a-icon type="calendar" /><span style="margin-right:3px">{{ item.date }}</span>
                     <a-icon type="heart" /><span style="margin-right:3px">{{ item.articleInfor.viewCount }}</span>
                     <a-icon type="message" /><span style="margin-right:3px">{{ item.articleInfor.commentCount }}</span>
                     <a-icon type="like" /><span style="margin-right:3px">{{ item.articleInfor.xmLike.very_good }}</span>
+                    <span>
+                      <nuxt-link class="detailsto" :to="{ name: 'details-id', params: { id: item.id } }">
+                        阅读详情>>>
+                      </nuxt-link>
+                    </span>
               </span> 
+              
             </template>
             <div slot="extra">
               <nuxt-link class="details-btn" :to="{ name: 'details-id', params: { id: item.id } }">
@@ -91,21 +97,35 @@ export default {
     font-size: 18px;
     padding:20px 0;
   }
-  .ant-list-item:before{
-    content: "";
-    position: absolute;
-    left: 50%;
-    bottom: -2px;
-    width: 0;
-    height: 2px;
-    background: #4285f4;
-    transition: all .3s;
-  }
-  .ant-list-item:hover:before{
+  // .listitem:before{
+  //   content: "";
+  //   position: absolute;
+  //   left: 50%;
+  //   bottom: -2px;
+  //   width: 0;
+  //   height: 2px;
+  //   background: #4285f4;
+  //   transition: all .3s;
+  // }
+  // .listitem:hover:before{
+  //   width: 100%;
+  //   left: 0;
+  //   right: 0;
+  // }
+  .details-btn{
     width: 100%;
-    left: 0;
-    right: 0;
+    height: 100%;
+    display: block;
+    img{
+      transition: all .3s linear;
+    }
+    &:hover{
+      img{
+        transform:scale(0.8)
+      }
+    }
   }
+  
 }
 @media screen and (max-width: 767px){
   .container_ph{
@@ -115,6 +135,8 @@ export default {
       padding:20px 25px;
     } 
   } 
-  
+  .detailsto{
+    display: none;
+  }
 }
 </style>
