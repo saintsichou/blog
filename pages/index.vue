@@ -12,7 +12,13 @@
         </a-carousel>
     </div>
     <!-- 说说 -->
-    <phrase></phrase>
+    <div class="attachment">
+      <div class="at_box">
+        <a-card title="公告栏目" :bordered="true">
+          <div class="content" v-html="info.notice"></div>
+        </a-card>
+      </div>
+    </div>
     <!-- 最新文章 -->
     <div class="article_box">
       <div class="articles">
