@@ -78,8 +78,11 @@
     </div>
     <!-- 搜索结束 -->
     <!-- music -->
-    <span :class="['tip',ismusic?'isshow2':'']">
-            <iframe src="http://music.163.com/outchain/player?type=0&amp;id=3039557527&amp;auto=1&amp;height=280" width="330" height="300" frameborder="no" marginwidth="0" marginheight="0" zIndex='999'></iframe>
+    <span class="tip">
+            <!-- <iframe src="http://music.163.com/outchain/player?type=0&amp;id=3039557527&amp;auto=1&amp;height=280" width="330" height="300" frameborder="no" marginwidth="0" marginheight="0" zIndex='999'></iframe> -->
+            <audio src="http://woaijs.cn/data/f_98646434.mp3" ref='player' controls="controls" loop='loop' preload="auto">
+            浏览器不支持
+            </audio>
     </span>
   </header>
 </template>
@@ -104,10 +107,11 @@ export default {
       current: ['mail'],
       rootSubmenuKeys: [],
       openKeys: [],
+      src:'http://woaijs.cn/data/f_98646434.mp3',
     }
   },
   watch: {
-    
+
   },
   computed: {
     ...mapState(['info', 'menu', 'menuStatus']),
@@ -119,6 +123,7 @@ export default {
     },
     showMusic(){
       this.ismusic = !this.ismusic
+      this.ismusic?this.$refs.player.pause():this.$refs.player.play()
     },
     onClose() {
       this.visible = false
@@ -128,14 +133,19 @@ export default {
     },
     // 搜索
     onSearch (value) {
-      this.isShowSearch = !this.isShowSearch
-      this.$router.push({
-        name: 'search',
-        query: {
-          page: 1,
-          s: value
-        }
-      })
+      if(value){
+        this.isShowSearch = !this.isShowSearch
+        this.$router.push({
+          name: 'search',
+          query: {
+            page: 1,
+            s: value
+          }
+        })
+      }else{
+        this.$message.info('请输入关键字')
+      }
+      
       
     },
     onOpenChange (openKeys) {
@@ -244,10 +254,11 @@ export default {
 }
 .tip{
     position: fixed;
-    top: 120px;
+    top: 0px;
     right: 0;
     z-index: 2;
     transition: all .3s linear;
+    display: none;
 }
 .icon{
   font-size: 20px;

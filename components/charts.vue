@@ -101,7 +101,7 @@ export default {
   .echarts{
     width: 1200px;
     height: 100%;
-    background: rgba(250,250,250,.7);
+    // background: rgba(250,250,250,.7);
     overflow: auto;
     margin:0 auto;
     display: flex;
@@ -110,7 +110,7 @@ export default {
     width:auto;
     height: auto;
     color:rgba(0, 0, 0, .45);
-    background: rgba(250,250,250,.7);
+    // background: rgba(250,250,250,.7);
     float: left;
     flex: 1;
     .ant-card{
@@ -130,7 +130,7 @@ export default {
      .echarts{
       width: 100%;
       height: 100%;
-      background: rgba(250,250,250,.7);
+      // background: rgba(250,250,250,.7);
       overflow: auto;
       margin:0 auto;
       display: flex;

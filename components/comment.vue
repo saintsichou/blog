@@ -5,7 +5,7 @@
         <div class="at_box">
           <h1 class="art_title">最新评论</h1>
             <a-comment v-for="item in sidebar.newComment" :key="item.key" class="demo-loadmore-list">
-              <a slot="author">{{item.author}}</a>
+              <a slot="author" class="author">{{item.author}}</a>
               <a-avatar
                 :src="item.avatar"
                 :alt="item.author"
@@ -69,3 +69,11 @@ export default {
   }
 }
 </script>
+<style lang="less" scoped>
+.author{
+  margin-right: 3px;
+      font-weight: bold;
+      color: #EF6D57;
+      font-size: 16px;
+}
+</style>

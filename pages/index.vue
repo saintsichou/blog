@@ -74,6 +74,7 @@ import { mapState, mapActions } from 'vuex'
 import phrase from '~/components/phrase';
 import comment from '~/components/comment';
 import charts from '~/components/charts';
+// import loadsvg from '~/components/Svgs/loadsvg';
 export default {
   name: 'Index',
   fetch ({ store }) {
