@@ -92,15 +92,12 @@ export default {
   proxy: {
     '/api': {
       target: 'http://liyichuan.top',
-      // target: 'https://xuanmo.xin',
       pathRewrite: {
         '^/api': '/'
       }
     },
     '/wp-content': {
       target: 'http://liyichuan.top'
-      // target: 'https://xuanmo.xin',
-
     }
   },
 

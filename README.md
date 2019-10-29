@@ -23,5 +23,5 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ## 博客技术栈
 
-nuxt.js+ant-desgin-vue+wordpress
+nuxt.js+ant-design-vue+wordpress
 
