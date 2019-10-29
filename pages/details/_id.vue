@@ -202,6 +202,9 @@ export default {
     text-align: center;
   }
   .section{
+      .title{
+        padding:10px;
+      }
       padding: 15px;
       background: #fff;
       border-radius: 4px;

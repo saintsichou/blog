@@ -1,17 +1,19 @@
 <template>
   <div class="container">
     <!-- 轮播图 -->
-    <div class='banner'>
-        <a-carousel effect='fade' autoplay>
-          <div v-for="(item, i) in info.banner.list" :key="i" class="bannerInner">
-            <a :href="item.link" class="block">
-              <div class="mask"></div>
-              <img :src="item.path" alt="">
-              <span class="masktitle" v-if="item.text">{{item.text}}</span>
-            </a>
-          </div>
-        </a-carousel>
-    </div>
+    <transition name="header">
+      <div class='banner'>
+          <a-carousel effect='fade' autoplay>
+            <div v-for="(item, i) in info.banner.list" :key="i" class="bannerInner">
+              <a :href="item.link" class="block">
+                <div class="mask"></div>
+                <img :src="item.path" alt="">
+                <span class="masktitle" v-if="item.text">{{item.text}}</span>
+              </a>
+            </div>
+          </a-carousel>
+      </div>
+    </transition>
     <!-- 说说 -->
     <div class="attachment">
       <div class="at_box">
