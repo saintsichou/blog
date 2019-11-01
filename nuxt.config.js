@@ -60,9 +60,6 @@ export default {
 
   plugins: [
     '~/plugins/axios',
-    '~plugins/charts',
-    // '~plugins/cloud',
-    {src:'~plugins/cloud',ssr:false },
     { src: '~/plugins/antd-ui', ssr: true },
     // { src: '~/plugins/message', ssr: false },
     // { src: '~/plugins/icon', ssr: true }

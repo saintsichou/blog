@@ -1,19 +1,13 @@
 <template>
   <div class="container">
     <!-- 轮播图 -->
-    <transition name="header">
-      <div class='banner'>
-          <a-carousel effect='fade' autoplay>
-            <div v-for="(item, i) in info.banner.list" :key="i" class="bannerInner">
-              <a :href="item.link" class="block">
-                <div class="mask"></div>
-                <img :src="item.path" alt="">
-                <span class="masktitle" v-if="item.text">{{item.text}}</span>
-              </a>
-            </div>
-          </a-carousel>
+      <div class='banner' :style="'background:url('+info.banner.list[1].path+');background-attachment: fixed;'">
+        <!-- <img :src="info.banner.list[1].path" alt=""> -->
+        <div class="center_box">
+          <p class='b_name'>{{this.info.blogName}}</p>
+          <p class="b_des">{{this.info.blogDescription}}</p>
+        </div>
       </div>
-    </transition>
     <!-- 说说 -->
     <div class="attachment">
       <div class="at_box">
@@ -161,54 +155,29 @@ export default {
   padding-top:@pdt;
   overflow: auto;
 }
-.ant-carousel{
-  .mask{
-    position: absolute;
-    width:100%;
-    height: 576px;
-    background: url('../assets/images/mask.png') repeat;
-  }
-  .masktitle{
-    position: absolute;
-    padding:10px 25px;
-    background: rgba(0, 0, 0, 0.65);
-    color:#fff;
-    text-align: center;
-    top:0;
-    border-radius:5px;
-  }
-  .slick-slide {
-    text-align: center;
-    height: 576px;
-    background: linear-gradient(90deg, #00c4cc, #7d2ae8);
-    overflow: hidden;
-  }
-  .custom-slick-arrow {
-      width: 50px;
-      height: 50px;
-      font-size: 50px;
-      color: #fff;
-      background-color: rgba(31, 45, 61, 0.11);
-      opacity: 0.3;
-  }
-  .custom-slick-arrow:before {
-    display: none;
-  }
-  .custom-slick-arrow:hover {
-    display: block;
-    opacity: 1;
-  }
-} 
 .banner{
   width: 100%;
-  height: auto;
-  .bannerInner{
-    width:100%;
-    img{
-      width:auto;
-      height: 576px;
-      margin:0 auto;
-    }
+  height: 276px;
+  background-attachment: fixed;
+  background-size: contain;
+  .center_box{
+    width:1200px;
+    height: 100%;
+    margin:0 auto;
+    position: relative;
+  }
+  .b_name{
+    position: absolute;
+    bottom: 180px;
+    font-size: 30px;
+    color:#fff;
+  }
+  .b_des{
+    position: absolute;
+    bottom: 110px;
+    font-size: 24px;
+    left:50px;
+    color:#fff;
   }
 }
 .article_box{
@@ -256,32 +225,30 @@ export default {
 }
 
 @media screen and (max-width:767px) {
-  .banner .bannerInner img {
+ .banner{
     width: 100%;
-    height: auto;
-    // margin: 0 auto;
-  }
-  .ant-carousel{
-    .slick-slide {
-      text-align: center;
-      height: 200px;
-      background: #364d79;
-      overflow: hidden;
+    height: 120px;
+    background-attachment: fixed;
+    background-size: contain;
+    .center_box{
+      width:auto;
+      height: 100%;
+      margin:0 auto;
+      position: relative;
     }
-    .custom-slick-arrow {
-        width: 20px;
-        height: 20px;
-        font-size: 20px;
-        color: #fff;
-        background-color: rgba(31, 45, 61, 0.11);
-        opacity: 0.3;
+    .b_name{
+      position: absolute;
+      top: 60px;
+      left:10px;
+      font-size: 14px;
+      color:#fff;
     }
-    .custom-slick-arrow:before {
-      display: none;
-    }
-    .custom-slick-arrow:hover {
-      display: block;
-      opacity: 1;
+    .b_des{
+      position: absolute;
+      top: 90px;
+      left:10px;
+      font-size: 12px;
+      color:#fff;
     }
   }
   .article_box{
