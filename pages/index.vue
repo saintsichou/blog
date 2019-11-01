@@ -4,8 +4,8 @@
       <div class='banner' :style="'background:url('+info.banner.list[1].path+');background-attachment: fixed;'">
         <!-- <img :src="info.banner.list[1].path" alt=""> -->
         <div class="center_box">
-          <p class='b_name'>{{this.info.blogName}}</p>
-          <p class="b_des">{{this.info.blogDescription}}</p>
+          <p class='b_name' ref='bname' :style="'left:'+ -(this.leftbox * 1) +'px;'">{{this.info.blogName}}</p>
+          <p class="b_des" ref='bdes' :style="'left:'+ (this.leftbox * 1) +'px;'">{{this.info.blogDescription}}</p>
         </div>
       </div>
     <!-- 说说 -->
@@ -101,14 +101,18 @@ export default {
   },
   data () {
     return {
-
+      leftbox:''
     }
   },
   created(){
 
   },
   mounted () {
-   
+    let self = this
+    window.addEventListener('scroll', function () {
+        // console.log(this.scrollY)
+          self.leftbox = this.scrollY 
+    })
   },
   beforeDestroy () {
 
@@ -171,6 +175,7 @@ export default {
     bottom: 180px;
     font-size: 30px;
     color:#fff;
+    left:0;
   }
   .b_des{
     position: absolute;
