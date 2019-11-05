@@ -7,7 +7,7 @@
         <ul class="content">
           <template v-for="(item, index) in sidebar.tagCloud">
             <li :key="item.key" v-if="index < 18" class="list" :class="`color-${Math.floor(Math.random() * 8) + 1}`">
-              <router-link :to="{ name: 'tags-id', params: { id: 1 }, query: { type: item.term_id, title: item.name } }">{{ item.name }}</router-link>
+              <nuxt-link :to="{ name: 'tags-id', params: { id: 1 }, query: { type: item.term_id, title: item.name } }">{{ item.name }}</nuxt-link>
             </li>
           </template>
         </ul>
