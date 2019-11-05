@@ -25,3 +25,8 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 nuxt.js+ant-design-vue+wordpress
 
+## 图片预览
+![avatar](http://i1.fuimg.com/702409/764195e7b3d7f6a0.jpg)
+
+![avatar](http://i1.fuimg.com/702409/b86a9d4ed61f92d1.jpg)
+
