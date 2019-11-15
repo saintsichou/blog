@@ -80,7 +80,7 @@
     <!-- music -->
     <span class="tip">
             <!-- <iframe src="http://music.163.com/outchain/player?type=0&amp;id=3039557527&amp;auto=1&amp;height=280" width="330" height="300" frameborder="no" marginwidth="0" marginheight="0" zIndex='999'></iframe> -->
-            <audio src="http://woaijs.cn/data/f_98646434.mp3" ref='player' controls="controls" loop='loop' preload="auto">
+            <audio :src="this.info.banner.list[3].link" ref='player' controls="controls" loop='loop' preload="auto">
             浏览器不支持
             </audio>
     </span>
@@ -116,6 +116,9 @@ export default {
   computed: {
     ...mapState(['info', 'menu', 'menuStatus']),
     
+  },
+  created(){
+
   },
   methods:{
     showDrawer() {
