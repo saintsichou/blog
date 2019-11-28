@@ -59,7 +59,7 @@ export default {
   },
   methods:{
     jump(){
-      window.open('http://www.liyichuan.top:3002/wp-login.php','_blank')
+      window.open('http://liqianrui.liyichuan.top/wp-login.php','_blank')
     },
   }
 }

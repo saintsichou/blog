@@ -113,7 +113,18 @@ blockquote {
   background: @main-theme;
   color:#fff;
 }
+// 滚动条颜色
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: #e4e4e4;
+}
 
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color:#7d2ae8;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
 // 滚动条颜色
 // ::-webkit-scrollbar {
 //   width: 1px;
@@ -121,9 +132,9 @@ blockquote {
 //   background: #e4e4e4;
 // }
 
-::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  background-color: @main-theme;
-  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(248, 226, 226, 0.2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
-}
+// ::-webkit-scrollbar-thumb {
+//   border-radius: 10px;
+//   background-color: @main-theme;
+//   background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(248, 226, 226, 0.2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+// }
 
