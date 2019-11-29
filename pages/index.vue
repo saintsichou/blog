@@ -157,7 +157,7 @@ export default {
 }
 .container {
   padding-top:@pdt;
-  overflow: auto;
+  overflow: hidden;
 }
 .banner{
   width: 100%;

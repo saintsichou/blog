@@ -70,3 +70,14 @@ hr {
 /* 让非ie浏览器默认也显示垂直滚动条，防止因滚动条引起的闪烁 */
 html { overflow-y: scroll;}
 
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+  background: #e4e4e4;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color:#7d2ae8;
+  background-image: -webkit-linear-gradient(45deg, rgba(255, 255, 255, .2) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, .2) 50%, rgba(255, 255, 255, .2) 75%, transparent 75%, transparent);
+}
